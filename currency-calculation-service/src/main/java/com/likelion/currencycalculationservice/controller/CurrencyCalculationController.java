@@ -32,7 +32,7 @@ public class CurrencyCalculationController {
         uriVariables.put("from",from);
         uriVariables.put("to",to);
         ResponseEntity<CalculatedAmount> responseEntity=restTemplate.getForEntity(
-                "http://currency-exchange-service/curreny-exchange/from/{from}/to/{to}", CalculatedAmount.class,uriVariables);
+                "http://currency-exchange-service/currency-exchange/from/{from}/to/{to}", CalculatedAmount.class,uriVariables);
         CalculatedAmount calculatedAmount=responseEntity.getBody();
         return new CalculatedAmount(calculatedAmount.getId(),calculatedAmount.getFrom(),calculatedAmount.getTo(),calculatedAmount.getConversionMultiple(),
                 quantity,quantity.multiply(calculatedAmount.getConversionMultiple()),calculatedAmount.getPort());
